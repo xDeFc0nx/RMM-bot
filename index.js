@@ -24,7 +24,7 @@ const listener = server.listen(process.env.PORT, function() {
 client.on("ready", async () => {
   client.user.setActivity(`${config.prefix}help`, {
     type: "STREAMING",
-    url: "https://www.twitch.tv/example-url"
+    url: "#"
   });
   console.log(`logged in as ${client.user.tag}`);
 });

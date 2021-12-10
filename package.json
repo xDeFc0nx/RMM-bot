@@ -1,7 +1,7 @@
 {
-  "name": "Simple Discord Moderation Bot",
+  "name": "RMM discord bot",
   "version": "0.0.1",
-  "description": "A simple discord bot, mainly a simple discord mod bot.",
+  "description": " discord bot for real muslim men server.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
