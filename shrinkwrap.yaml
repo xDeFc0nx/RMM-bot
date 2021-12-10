@@ -1,7 +1,8 @@
 dependencies:
   discord.js: 12.5.3
   express: 4.17.1
-  graceful-fs: 4.2.6
+ 
+ graceful-fs: 4.2.6
 packages:
   /@discordjs/collection/0.1.6:
     dev: false
