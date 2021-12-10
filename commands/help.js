@@ -15,8 +15,8 @@ module.exports = {
     .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic:true }))
     .setTitle(`${message.author.tag} | Help Menu!`)
     .setDescription('My Prefix Is: `'+`${config.prefix}`+'`')
-    .addField(`General commands:`, `${prefix}help - Shows all the commands you can use!\n${prefix}ban - Bans a User from the Server.\n${prefix}kick - Kicks a User from the Server.\n${prefix}lock - Locks the current channel.\n${prefix}unlock - Unlocks the current channel.\n${prefix}slowmode - Sets the channels slowmode.`)
-    .setFooter('Made with ❤️ By: Stealthy#3408')
+    .addField(`General commands:`, `${prefix}help - Shows all the commands you can use!\n${prefix}ban - Bans a User from the Server.\n${prefix}kick - Kicks a User from the Server.\n${prefix}lock - Locks the current channel.\n${prefix}unlock - Unlocks the current channel.\n${prefix}slowmode - Sets the channels slowmode.\n${prefix}verify - Verrifies a member`)
+    
     message.channel.send(embed)
   }
 };

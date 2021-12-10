@@ -8,6 +8,7 @@ module.exports = {
   cooldown: 0, // Cooldown In Seconds
   guildOnly: false, // If Command In DMs return
   admin: false, // Bot Admin only
+  mod: true,
   async execute(message, args, client) {    
       let prefix = config.prefix
     

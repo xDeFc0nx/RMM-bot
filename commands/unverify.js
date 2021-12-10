@@ -2,7 +2,7 @@ const config = require("../config.json");
 const Discord = require("discord.js");
 const client = new Discord.Client();
 module.exports = {
-  name: "verify", // Command Name
+  name: "unverify", // Command Name
   aliases: ["bm"], // Aliases
   usage: "<user>", // Usage
   cooldown: 0, // Cooldown In Seconds
@@ -23,12 +23,11 @@ if (!user) {
 }
 if (user){
   
-  member.roles.remove(nonVerified);
-  member.roles.add(verified);
-  message.channel.send('Verified ' + user.toString())
+  member.roles.remove(verified);
+  member.roles.add(nonVerified);
+  message.channel.send('Un Verified ' + user.toString())
          
-        client.channels.cache.get("880565815487918227").send(user.toString() + " Asalmualikum Warahmatullahi Wabarakatuh, Welcome to RMM(Real Muslim Men) Please read rules in <#880565815487918221>, you can read more information about roles in <#880565815487918222>,get some roles in <#880565815487918223>, and introduce yourself in <#890121772714823680> , Thanks for joining us! :slight_smile:   ")
-    }
+        }
    
    
 
