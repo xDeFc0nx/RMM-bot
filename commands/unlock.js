@@ -14,14 +14,9 @@ module.exports = {
       
    if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send("**You don't have the permission to preform this action!**");
 
-     const type = message.channel.type === 'text' ? 'SEND_MESSAGES' : 'CONNECT';
-message.channel.overwritePermissions([
-  {
-     id: message.guild.roles.everyone,
-     allow: ['SEND_MESSAGES', 'ADD_REACTIONS'],
-  },
-]);
-    return message.channel.send(`Channel Unlocked, ${message.author.tag}`)
+   
+
+return message.channel.send(`Command not ready yet, ${message.reply}`)
   
   
   
