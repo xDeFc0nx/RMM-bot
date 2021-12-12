@@ -16,7 +16,7 @@ module.exports = {
        const amount = parseInt(args[0]);
     if (message.member.hasPermission("MANAGE_CHANNELS"))
       if (isNaN(amount))
-        return message.channel.send("The value you specified does not seem to provide a number, please try again.");
+        return message.channel.send("You have to set a number habibi");
     if (args[0] === amount + "s") {
       message.channel.setRateLimitPerUser(amount);
       if (amount > 1) {
@@ -77,7 +77,7 @@ module.exports = {
       }
     } else {
       message.channel.send(
-        "You can only set seconds(s), minutes(min) and hours(h)"
+        "habibi You can only set seconds(s), minutes(min) and hours(h)"
       );
     }
   }

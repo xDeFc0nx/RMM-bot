@@ -12,10 +12,10 @@ module.exports = {
   async execute(message, args, client) {    
       let prefix = config.prefix
       
-   if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.channel.send("**You don't have the permission to preform this action!**");
+  
 
     
-return message.channel.send(`Command not ready yet, ${message.reply}`)
+return  message.reply("Habibi this command is not yet ready, have sabr.")
 
   
   

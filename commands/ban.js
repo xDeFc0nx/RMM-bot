@@ -12,16 +12,16 @@ module.exports = {
   async execute(message, args, client) {    
       let prefix = config.prefix
     
-    if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**You don't have the permission to preform this action!**");
+    if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**ya akhi, you mad?, you do not have premissions!**");
             if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**I Dont Have Permissions To Ban Users! | [BAN_MEMBERS]**");
-            if (!args[0]) return message.channel.send('You must mention a `User` to **ban**.')
+            if (!args[0]) return message.channel.send('habibi You must mention a `User` to **ban**.')
 
             let banMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
-                 if (banMember === message.member) return message.channel.send("You can't ban yourself.")
+                 if (banMember === message.member) return message.channel.send("smh, what are you doing? you cant ban yourself.")
 
             var reason = args.slice(1).join(" ");
 
-            if (!banMember.bannable) return message.channel.send("It appears that the specified user can not be banned.")
+            if (!banMember.bannable) return message.channel.send("habibi, you cant ban him")
             try {
             message.guild.members.ban(banMember)
             banMember.send(`**Hello, You Have Been Banned From ${message.guild.name} for - ${reason || "Reason was not Specified"}**`).catch(() => null)
@@ -32,7 +32,7 @@ module.exports = {
             var sembed = new Discord.MessageEmbed()
                 .setColor("RED")
             .setThumbnail(message.guild.iconURL())
-                .setDescription(`**${banMember.user.username}** Was banned ${reason}`)
+                .setDescription(`**${banMember.user.username}** Was banned the guy most have said somthing, not good${reason}`)
             message.channel.send(sembed)
             } else {
                 var sembed2 = new Discord.MessageEmbed()
