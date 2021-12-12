@@ -1,6 +1,6 @@
 {
   "name": "RMM discord bot",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": " discord bot for real muslim men server.",
   "main": "index.js",
   "scripts": {
