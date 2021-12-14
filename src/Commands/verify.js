@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 module.exports = new Command({
   name: "verify",
   description: "Shows the ping of the bot!",
+  premission: "true",
   async run(message, args, client) {
     let member = message.mentions.members.first();
     let nonVerified = message.guild.roles.cache.find(
