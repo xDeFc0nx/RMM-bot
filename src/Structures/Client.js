@@ -8,7 +8,7 @@ const config = require("../Data/config.json");
 
 const Event = require("./Event.js");
 
-const intents = new Discord.Intents(32735);
+const intents = new Discord.Intents(32751);
 
 class Client extends Discord.Client {
   constructor() {
