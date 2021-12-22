@@ -12,9 +12,5 @@ module.exports = new Event("messageCreate", (client, message) => {
 
   if (!command) return message.reply(`${args[0]} is not a valid command!`);
 
-  // if (!message.guild.roles.cache.find((r) => r.id === "880565815123005547")) {
-  //   message.reply("**ya akhi, you mad?, you do not have premissions!**");
-  // }
-
   command.run(message, args, client);
 });
