@@ -23,7 +23,7 @@ module.exports = async (client, message) => {
     let command = client.commands.get(cmd);
     if(!command) command = client.commands.get(client.aliases.get(cmd));
     if (command) {
-        //Check if user is on cooldown with the cmd, with Tomato#6966's Function from /handlers/functions.js
+        //Check if user is on cooldown with the cmd,  Function from /handlers/functions.js
         if (onCoolDown(message, command)) {
           return message.reply({
             embeds: [new Discord.MessageEmbed()
@@ -141,15 +141,7 @@ module.exports = async (client, message) => {
             }))]
         }).then(msg => {setTimeout(()=>{msg.delete().catch((e) => {console.log(String(e).grey)})}, 4000)}).catch((e) => {console.log(String(e).grey)});
 }
-/**
- * @INFO
- * Bot Coded by Tomato#6966 | https://discord.gg/milrato
- * @INFO
- * Work for Milrato Development | https://milrato.eu
- * @INFO
- * Please mention Him / Milrato Development, when using this Code!
- * @INFO
- */
+
 function escapeRegex(str) {
     return str.replace(/[.*+?^${}()|[\]\\]/g, `\\$&`);
 }
