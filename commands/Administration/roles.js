@@ -3,7 +3,7 @@ const { MessageActionRow, MessageSelectMenu } = require("discord.js");
 const config = require("../../botconfig/config.json");
 const ee = require("../../botconfig/embed.json");
 module.exports = {
-  name: "select", //the Command Name
+  name: "roles", //the Command Name
   category: "Administration", //the Command Category [OPTIONAL]
   cooldown: 2, //the Command Cooldown (Default in /botconfig/settings.json) [OPTIONAL]
   description: "role selection", //the command description [OPTIONAL]
@@ -137,3 +137,4 @@ module.exports = {
     });
     },
   };
+ 

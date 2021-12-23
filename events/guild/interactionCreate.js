@@ -68,4 +68,8 @@ module.exports = (client, interaction) => {
 		//execute the Command
 		command.run(client, interaction, interaction.member, interaction.guild)
 	}
+
+  if(interaction.isSelectMenu()){
+console.log(interaction)
+  }
 }
