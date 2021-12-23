@@ -25,12 +25,3 @@ module.exports = client => {
     console.log(String(e.stack).grey.italic.dim.bgRed)
   }
 }
-/**
-  * @INFO
-  * Bot Coded by Tomato#6966 | https://discord.gg/FQGXbypRf8
-  * @INFO
-  * Work for Milrato Development | https://milrato.eu
-  * @INFO
-  * Please mention him / Milrato Development, when using this Code!
-  * @INFO
-*/
