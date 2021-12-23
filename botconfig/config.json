@@ -1,0 +1,18 @@
+{
+  "token": "OTIwMDY2NzUxNzAwNTM3MzQ0.Ybe87w.8hdXoEWmfdAkupt1fcA4kPIIeag",
+  "prefix": "!",
+  "loadSlashsGlobal": false,
+  "_COMMENT_": "Set it to true, when your Slash Commands are ready, false loads instant true loads slow but stable! (GLOBAL/GUILD COMMANDS, DISCORD DOCS!)",
+  "slashCommandsDirs": [
+    {
+      "Folder": "Info",
+      "CmdName": "info",
+      "CmdDescription": "Grant specific Information about something!"
+    },
+    {
+      "Folder": "Admin",
+      "CmdName": "admin",
+      "CmdDescription": "Administrate the Server!"
+    }
+  ]
+}
