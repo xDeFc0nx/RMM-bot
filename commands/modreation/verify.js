@@ -3,7 +3,7 @@ const config = require("../../botconfig/config.json");
 const ee = require("../../botconfig/embed.json");
 module.exports = {
   name: "verify", //the Command Name
-  category: "Administration", //the Command Category [OPTIONAL]
+  category: "modreation", //the Command Category [OPTIONAL]
   aliases: [], //the command aliases [OPTIONAL]
   cooldown: 2, //the Command Cooldown (Default in /botconfig/settings.json) [OPTIONAL]
   description: "veriffies user", //the command description [OPTIONAL]

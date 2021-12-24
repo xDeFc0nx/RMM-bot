@@ -131,7 +131,5 @@ module.exports = (client, interaction) => {
     command.run(client, interaction, interaction.member, interaction.guild);
   }
 
-  if (interaction.customID === "announcement") {
-    message.reply("sadadads");
-  }
+
 };
