@@ -4,13 +4,13 @@ const config = require("../../botconfig/config.json");
 const ee = require("../../botconfig/embed.json");
 module.exports = {
   name: "ban", //the Command Name
-  category: "modreation", //the Command Category [OPTIONAL]
+  category: "Moderation", //the Command Category [OPTIONAL]
   aliases: [], //the command aliases [OPTIONAL]
   cooldown: 2, //the Command Cooldown (Default in /botconfig/settings.json) [OPTIONAL]
   usage: "ban target", //the Command usage [OPTIONAL]
   description: "Resends your Text", //the command description [OPTIONAL]
   memberpermissions: [], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
-  requiredroles: ["880565815123005547", "880565815123005546"], //Only allow specific Users with a Role to execute a Command [OPTIONAL]
+  requiredroles: ["880565815123005546", "923708767076503552", "880565815123005547","923710024482705518"], //Only allow specific Users with a Role to execute a Command [OPTIONAL]
   alloweduserids: [], //Only allow specific Users to execute a Command [OPTIONAL]
   minargs: 1, // minimum args for the message, 0 == none [OPTIONAL]
   maxargs: 0, // maximum args for the message, 0 == none [OPTIONAL]
