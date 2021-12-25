@@ -7,7 +7,7 @@ module.exports = {
   category: "Moderation", //the Command Category [OPTIONAL]
   aliases: [], //the command aliases [OPTIONAL]
   cooldown: 2, //the Command Cooldown (Default in /botconfig/settings.json) [OPTIONAL]
-  usage: "ban target", //the Command usage [OPTIONAL]
+  usage: "uses the new timeout featrue, its buggy, use s and m for time", //the Command usage [OPTIONAL]
   description: "Resends your Text", //the command description [OPTIONAL]
   memberpermissions: [], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
   requiredroles: [
