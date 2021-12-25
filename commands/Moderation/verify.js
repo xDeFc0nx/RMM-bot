@@ -6,7 +6,7 @@ module.exports = {
   category: "Moderation", //the Command Category [OPTIONAL]
   aliases: [], //the command aliases [OPTIONAL]
   cooldown: 2, //the Command Cooldown (Default in /botconfig/settings.json) [OPTIONAL]
-  description: "veriffies user", //the command description [OPTIONAL]
+  description: "verifies user", //the command description [OPTIONAL]
   memberpermissions: [], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
   requiredroles: [
     "880565815123005545",

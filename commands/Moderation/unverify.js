@@ -2,11 +2,11 @@ const { MessageEmbed } = require("discord.js");
 const config = require("../../botconfig/config.json");
 const ee = require("../../botconfig/embed.json");
 module.exports = {
-  name: "purge", //the Command Name
+  name: "unverify", //the Command Name
   category: "Moderation", //the Command Category [OPTIONAL]
   aliases: [], //the command aliases [OPTIONAL]
   cooldown: 2, //the Command Cooldown (Default in /botconfig/settings.json) [OPTIONAL]
-  description: "veriffies user", //the command description [OPTIONAL]
+  description: "unverifies user", //the command description [OPTIONAL]
   memberpermissions: [], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
   requiredroles: [
     "880565815123005545",
@@ -23,43 +23,33 @@ module.exports = {
   argsmissing_message: "You are missing the text you wanna add to the message!", //Message if the user has not enough args / not enough plus args, which will be sent, leave emtpy / dont add, if you wanna use command.usage or the default message! [OPTIONAL]
   argstoomany_message: "You are having too many arguments for this Command!", //Message if the user has too many / not enough args / too many plus args, which will be sent, leave emtpy / dont add, if you wanna use command.usage or the default message! [OPTIONAL]
   run: async (client, message, args, plusArgs, cmdUser, text, prefix) => {
-    if (!args[0]) {
+    let member = message.mentions.members.first();
+
+    let nonVerified = message.guild.roles.cache.find(
+      (r) => r.id === "881530659028496404"
+    );
+    let verified = message.guild.roles.cache.find(
+      (r) => r.id === "881540349649113099"
+    );
+
+    const user = message.mentions.users.first();
+    if (!user) {
       const error = new MessageEmbed()
         .setColor("RED")
-        .setDescription("Specify the ammount to clear");
-      message.reply({ embeds: [error] });
+        .setDescription("No user specified,");
+      message.channel.send({ embeds: [error] });
     }
+    if (user) {
+      member.roles.add(nonVerified);
+      member.roles.remove(verified);
 
-    if (isNaN(args[0])) {
-      const error1 = new MessageEmbed()
-        .setColor("RED")
-        .setDescription("Ya akhi it needs to be a number");
-      message.reply({ embeds: [error1] });
+      const error = new MessageEmbed()
+        .setColor("GREEN")
+        .setDescription("Un Verified " + user.toString());
+      message.channel.send({ embeds: [error] });
+
+     
+     
     }
-
-    if (args[0] > 100) {
-      const error2 = new MessageEmbed()
-        .setColor("RED")
-        .setDescription(
-          "Ya habibi that's way to much, it has to be less then 500"
-        );
-      message.reply({ embeds: [error2] });
-    }
-    if (args[0] < 1) {
-      const error3 = new MessageEmbed()
-        .setColor("RED")
-        .setDescription(
-          "What are you trying to do? add messages?, can't do that"
-        );
-      message.reply({ embeds: [error3] });
-    }
-    await message.delete()
-
-    await message.channel.messages
-      .fetch({ limit: args[0] })
-      .then((messages) => {
-        message.channel.bulkDelete(messages);
-      });
-
   },
 };

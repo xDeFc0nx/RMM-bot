@@ -65,9 +65,12 @@ module.exports = {
         .setDescription(` ${member} was banned, he most have said somthing`)
         .addField('Reason', `${reason}`)
         .setFooter(message.member.displayName, message.author.displayAvatarURL({dynamic: true}))
-      message.reply({
+      message.channel.send({
         embeds: [embed3],
-      });}
+      });
+    
+      await message.delete()
+    }
     
     }  
     
