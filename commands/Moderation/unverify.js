@@ -40,16 +40,13 @@ module.exports = {
       message.channel.send({ embeds: [error] });
     }
     if (user) {
+      member.roles.set([]);
       member.roles.add(nonVerified);
-      member.roles.remove(verified);
 
       const error = new MessageEmbed()
         .setColor("GREEN")
         .setDescription("Un Verified " + user.toString());
       message.channel.send({ embeds: [error] });
-
-     
-     
     }
   },
 };
