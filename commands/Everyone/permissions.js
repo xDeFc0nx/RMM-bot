@@ -6,7 +6,7 @@ const { GetUser } = require("../../handlers/functions")
 const settings = require("../../botconfig/settings.json");
 module.exports = {
   name: "permissions", //the command name for execution & for helpcmd [OPTIONAL]
-  category: "Information", //the command category for helpcmd [OPTIONAL]
+  category: "Everyone", //the command category for helpcmd [OPTIONAL]
   aliases: ["perms"], //the command aliases for helpcmd [OPTIONAL]
   cooldown: 5, //the command cooldown for execution & for helpcmd [OPTIONAL]
   usage: "permissions [@USER]", //the command usage for helpcmd [OPTIONAL]

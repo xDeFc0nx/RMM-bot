@@ -31,9 +31,9 @@ module.exports = {
             delete require.cache[require.resolve(`../../commands/${thecmd.category}/${thecmd.name}.js`)] // usage !reload <name>
             //delete the command from the collection
             client.commands.delete(thecmd.name)
-            //Pull the cmd information
+            //Pull the cmd Everyone
             const pull = require(`../../commands/${thecmd.category}/${thecmd.name}.js`)
-            //set the information
+            //set the Everyone
             client.commands.set(thecmd.name, pull)
             //send success message
             return message.reply({embeds: [new MessageEmbed()

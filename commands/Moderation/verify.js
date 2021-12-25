@@ -51,7 +51,7 @@ module.exports = {
       client.channels.cache.get("880565815487918227").send({
         content:
           user.toString() +
-          " Asalmualikum Warahmatullahi Wabarakatuh, Welcome to RMM(Real Muslim Men) Please read rules in <#880565815487918221>, you can read more information <#923675875831070760>,get some roles in <#880565815487918223>, and introduce yourself in <#890121772714823680> , Thanks for joining us! :slight_smile:   ",
+          " Asalmualikum Warahmatullahi Wabarakatuh, Welcome to RMM(Real Muslim Men) Please read rules in <#880565815487918221>, you can read more Everyone <#923675875831070760>,get some roles in <#880565815487918223>, and introduce yourself in <#890121772714823680> , Thanks for joining us! :slight_smile:   ",
           allowedMentions: { parse: ['users'] }
       });
     }

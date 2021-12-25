@@ -20,6 +20,7 @@ module.exports = async (client, message) => {
         }
         return;
     }
+    
     let command = client.commands.get(cmd);
     if(!command) command = client.commands.get(client.aliases.get(cmd));
     if (command) {
@@ -131,7 +132,12 @@ module.exports = async (client, message) => {
             }).then(msg => {setTimeout(()=>{msg.delete().catch((e) => {console.log(String(e).grey)})}, 4000)}).catch((e) => {console.log(String(e).grey)});
           }
         }
-      } else //if the command is not found send an info msg
+
+
+        
+      }
+      
+      else //if the command is not found send an info msg
         return message.reply({
           embeds: [new Discord.MessageEmbed()
             .setColor(ee.wrongcolor)
@@ -144,4 +150,7 @@ module.exports = async (client, message) => {
 
 function escapeRegex(str) {
     return str.replace(/[.*+?^${}()|[\]\\]/g, `\\$&`);
-}
+
+  }
+
+  

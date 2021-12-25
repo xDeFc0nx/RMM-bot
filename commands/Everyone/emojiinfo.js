@@ -6,11 +6,11 @@ const moment = require("moment")
 const settings = require("../../botconfig/settings.json");
 module.exports = {
   name: "emojiinfo", //the command name for execution & for helpcmd [OPTIONAL]
-  category: "Information", //the command category for helpcmd [OPTIONAL]
+  category: "Everyone", //the command category for helpcmd [OPTIONAL]
   aliases: [], //the command aliases for helpcmd [OPTIONAL]
   cooldown: 5, //the command cooldown for execution & for helpcmd [OPTIONAL]
   usage: "emojiinfo <Emoji>", //the command usage for helpcmd [OPTIONAL]
-  description: "Shows Information about an Emoji", //the command description for helpcmd [OPTIONAL]
+  description: "Shows Everyone about an Emoji", //the command description for helpcmd [OPTIONAL]
   memberpermissions: [], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
   requiredroles: [], //Only allow specific Users with a Role to execute a Command [OPTIONAL]
   alloweduserids: [], //Only allow specific Users to execute a Command [OPTIONAL]
@@ -37,7 +37,7 @@ module.exports = {
         const authorFetch = await emoji.fetchAuthor();
         const checkOrCross = (bool) => bool ? "✅" : "❌" ;
         const embed = new MessageEmbed()
-        .setTitle(`**Emoji Information for: __\`${emoji.name.toLowerCase()}\`__**`)
+        .setTitle(`**Emoji Everyone for: __\`${emoji.name.toLowerCase()}\`__**`)
         .setColor(ee.color)
         .setThumbnail(emoji.url)
         .addField("**General:**", [
@@ -63,7 +63,7 @@ module.exports = {
         const authorFetch = await emoji.fetchAuthor();
         const checkOrCross = (bool) => bool ? "✅" : "❌" ;
         const embed = new MessageEmbed()
-        .setTitle(`**Emoji Information for: __\`${emoji.name.toLowerCase()}\`__**`)
+        .setTitle(`**Emoji Everyone for: __\`${emoji.name.toLowerCase()}\`__**`)
         .setColor(ee.color)
         .setThumbnail(emoji.url)
         .addField("**General:**", [

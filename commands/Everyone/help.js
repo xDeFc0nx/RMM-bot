@@ -4,7 +4,7 @@ const ee = require("../../botconfig/embed.json");
 const settings = require("../../botconfig/settings.json");
 module.exports = {
   name: "help", //the command name for execution & for helpcmd [OPTIONAL]
-  category: "Information", //the command category for helpcmd [OPTIONAL]
+  category: "Everyone", //the command category for helpcmd [OPTIONAL]
   aliases: ["h", "commandinfo", "cmds", "cmd", "halp"], //the command aliases for helpcmd [OPTIONAL]
   cooldown: 3, //the command cooldown for execution & for helpcmd [OPTIONAL]
   usage: "help [Commandname]", //the command usage for helpcmd [OPTIONAL]
@@ -24,10 +24,10 @@ module.exports = {
           const embed = new MessageEmbed();
           const cmd = client.commands.get(args[0].toLowerCase()) || client.commands.get(client.aliases.get(args[0].toLowerCase()));
           if (!cmd) {
-              return message.reply({embeds: [embed.setColor(ee.wrongcolor).setDescription(`No Information found for command **${args[0].toLowerCase()}**`)]});
+              return message.reply({embeds: [embed.setColor(ee.wrongcolor).setDescription(`No Everyone found for command **${args[0].toLowerCase()}**`)]});
           }
           if (cmd.name) embed.addField("**Command name**", `\`${cmd.name}\``);
-          if (cmd.name) embed.setTitle(`Detailed Information about:\`${cmd.name}\``);
+          if (cmd.name) embed.setTitle(`Detailed Everyone about:\`${cmd.name}\``);
           if (cmd.description) embed.addField("**Description**", `\`${cmd.description}\``);
           if (cmd.aliases) embed.addField("**Aliases**", `\`${cmd.aliases.map((a) => `${a}`).join("`, `")}\``);
           if (cmd.cooldown) embed.addField("**Cooldown**", `\`${cmd.cooldown} Seconds\``);
@@ -42,7 +42,7 @@ module.exports = {
               .setColor(ee.color)
               .setThumbnail(client.user.displayAvatarURL())
               .setTitle("HELP MENU 🔰 Commands")
-              .setFooter(`To see command Descriptions and Information, type: ${prefix}help [CMD NAME]`, client.user.displayAvatarURL());
+              .setFooter(`To see command Descriptions and Everyone, type: ${prefix}help [CMD NAME]`, client.user.displayAvatarURL());
           const commands = (category) => {
               return client.commands.filter((cmd) => cmd.category === category).map((cmd) => `\`${cmd.name}\``);
           };

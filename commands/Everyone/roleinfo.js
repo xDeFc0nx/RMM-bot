@@ -7,11 +7,11 @@ const { GetRole } = require("../../handlers/functions")
 const settings = require("../../botconfig/settings.json");
 module.exports = {
   name: "roleinfo", //the command name for execution & for helpcmd [OPTIONAL]
-  category: "Information", //the command category for helpcmd [OPTIONAL]
+  category: "Everyone", //the command category for helpcmd [OPTIONAL]
   aliases: ["rinfo"], //the command aliases for helpcmd [OPTIONAL]
   cooldown: 5, //the command cooldown for execution & for helpcmd [OPTIONAL]
   usage: "roleinfo <@ROLE>", //the command usage for helpcmd [OPTIONAL]
-  description: "Shows Information about a role", //the command description for helpcmd [OPTIONAL]
+  description: "Shows Everyone about a role", //the command description for helpcmd [OPTIONAL]
   memberpermissions: [], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
   requiredroles: [], //Only allow specific Users with a Role to execute a Command [OPTIONAL]
   alloweduserids: [], //Only allow specific Users to execute a Command [OPTIONAL]
@@ -38,7 +38,7 @@ module.exports = {
         //create the EMBED
         const embeduserinfo = new MessageEmbed()
         embeduserinfo.setThumbnail(message.guild.iconURL({ dynamic: true, size: 512 }))
-        embeduserinfo.setAuthor("Information about:   " + role.name, message.guild.iconURL({ dynamic: true }), "https://discord.gg/FQGXbypRf8")
+        embeduserinfo.setAuthor("Everyone about:   " + role.name, message.guild.iconURL({ dynamic: true }), "https://discord.gg/FQGXbypRf8")
         embeduserinfo.addField('**❱ Name:**',`\`${role.name}\``,true)
         embeduserinfo.addField('**❱ ID:**',`\`${role.id}\``,true)
         embeduserinfo.addField('**❱ Color:**',`\`${role.hexColor}\``,true)

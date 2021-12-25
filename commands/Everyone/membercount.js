@@ -5,7 +5,7 @@ var ee = require("../../botconfig/embed.json")
 const settings = require("../../botconfig/settings.json");
 module.exports = {
   name: "membercount", //the command name for execution & for helpcmd [OPTIONAL]
-  category: "Information", //the command category for helpcmd [OPTIONAL]
+  category: "Everyone", //the command category for helpcmd [OPTIONAL]
   aliases: [], //the command aliases for helpcmd [OPTIONAL]
   cooldown: 5, //the command cooldown for execution & for helpcmd [OPTIONAL]
   usage: "membercount", //the command usage for helpcmd [OPTIONAL]
@@ -23,7 +23,7 @@ module.exports = {
     try {
       await message.guild.members.fetch();
         message.reply({embeds: [new Discord.MessageEmbed()
-        .setAuthor("Member-Count Information About: " +  message.guild.name, message.guild.iconURL({
+        .setAuthor("Member-Count Everyone About: " +  message.guild.name, message.guild.iconURL({
           dynamic: true
         }), "https://clan.milrato.eu")
         .setColor(ee.color)

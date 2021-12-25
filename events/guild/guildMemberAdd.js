@@ -1,6 +1,6 @@
 /**
  * @INFO
- * Loading all needed File Information Parameters
+ * Loading all needed File Everyone Parameters
  */
 const config = require("../../botconfig/config.json"); //loading config file with token and prefix
 const settings = require("../../botconfig/settings.json"); //loading settings file with the settings

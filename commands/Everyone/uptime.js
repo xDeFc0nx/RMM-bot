@@ -5,7 +5,7 @@ const { duration } = require("../../handlers/functions")
 const settings = require("../../botconfig/settings.json");
 module.exports = {
     name: "uptime", //the command name for execution & for helpcmd [OPTIONAL]
-    category: "Information", //the command category for helpcmd [OPTIONAL]
+    category: "Everyone", //the command category for helpcmd [OPTIONAL]
     aliases: [], //the command aliases for helpcmd [OPTIONAL]
     cooldown: 5, //the command cooldown for execution & for helpcmd [OPTIONAL]
     usage: "uptime", //the command usage for helpcmd [OPTIONAL]

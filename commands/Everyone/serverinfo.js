@@ -6,11 +6,11 @@ const moment = require("moment")
 const settings = require("../../botconfig/settings.json");
 module.exports = {
   name: "serverinfo", //the command name for execution & for helpcmd [OPTIONAL]
-  category: "Information", //the command category for helpcmd [OPTIONAL]
+  category: "Everyone", //the command category for helpcmd [OPTIONAL]
   aliases: ["sinfo"], //the command aliases for helpcmd [OPTIONAL]
   cooldown: 5, //the command cooldown for execution & for helpcmd [OPTIONAL]
   usage: "serverinfo", //the command usage for helpcmd [OPTIONAL]
-  description: "Shows Information about the Server", //the command description for helpcmd [OPTIONAL]
+  description: "Shows Everyone about the Server", //the command description for helpcmd [OPTIONAL]
   memberpermissions: [], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
   requiredroles: [], //Only allow specific Users with a Role to execute a Command [OPTIONAL]
   alloweduserids: [], //Only allow specific Users to execute a Command [OPTIONAL]
@@ -50,7 +50,7 @@ module.exports = {
       if (boosts >= 15) maxbitrate = 256000;
       if (boosts >= 30) maxbitrate = 384000;
         message.reply({embeds: [new Discord.MessageEmbed()
-        .setAuthor("Server Information About: " +  message.guild.name, message.guild.iconURL({
+        .setAuthor("Server Everyone About: " +  message.guild.name, message.guild.iconURL({
           dynamic: true
         }), "https://clan.milrato.eu")
         .setColor(ee.color)

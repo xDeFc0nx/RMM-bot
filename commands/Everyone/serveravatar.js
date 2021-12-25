@@ -5,7 +5,7 @@ var ee = require("../../botconfig/embed.json")
 const settings = require("../../botconfig/settings.json");
 module.exports = {
   name: "serveravatar", //the command name for execution & for helpcmd [OPTIONAL]
-  category: "Information", //the command category for helpcmd [OPTIONAL]
+  category: "Everyone", //the command category for helpcmd [OPTIONAL]
   aliases: ["savatar"], //the command aliases for helpcmd [OPTIONAL]
   cooldown: 5, //the command cooldown for execution & for helpcmd [OPTIONAL]
   usage: "serveravatar", //the command usage for helpcmd [OPTIONAL]

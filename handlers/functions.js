@@ -112,7 +112,7 @@ function replacedefaultmessages(text, o = {}) {
 
 /**
  *
- * @param {*} message A DiscordMessage, with the client, information
+ * @param {*} message A DiscordMessage, with the client, Everyone
  * @param {*} command The Command with the command.name
  * @returns BOOLEAN
  */
@@ -200,7 +200,7 @@ function isValidURL(string) {
 
 /**
  *
- * @param {*} message a DISCORDMESSAGE with the Content and guild and client information
+ * @param {*} message a DISCORDMESSAGE with the Content and guild and client Everyone
  * @param {*} arg //a argument, for search for example
  * @returns BOOLEAN/DISCORDUSER
  */
@@ -256,7 +256,7 @@ function GetUser(message, arg) {
 
 /**
  *
- * @param {*} message a DISCORDMESSAGE with the Content and guild and client information
+ * @param {*} message a DISCORDMESSAGE with the Content and guild and client Everyone
  * @param {*} arg //a argument, for search for example
  * @returns BOOLEAN/GUILDROLE
  */
@@ -299,7 +299,7 @@ function GetRole(message, arg) {
 
 /**
  *
- * @param {*} message a DISCORDMESSAGE with the Content and guild and client information
+ * @param {*} message a DISCORDMESSAGE with the Content and guild and client Everyone
  * @param {*} arg //a argument, for search for example
  * @returns BOOLEAN/DISCORDUSER
  */
