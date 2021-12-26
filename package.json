@@ -1,6 +1,6 @@
 {
   "name": "RMM bot",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "main": "src/index.js",
   "author": "DeFc0n",
   "license": "MIT",

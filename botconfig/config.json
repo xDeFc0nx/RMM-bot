@@ -1,6 +1,10 @@
 {
   "token": "OTIwMDY2NzUxNzAwNTM3MzQ0.Ybe87w.8hdXoEWmfdAkupt1fcA4kPIIeag",
-  "Databse": "mongodb+srv://nehar:aezakmi@cluster0.9pfhd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "Database": "mongodb+srv://nehar:aezakmi@cluster0.9pfhd.mongodb.net/Cluster0?retryWrites=true&w=majority",
+  "EVERYONEID": "880565815102046248",
+  "PARENTID": "881547424538165268",
+  "OPENTICKET": "881536130846191636",
+  "TRANSCRIPTSID": "880565816209342469",
   "prefix": "!",
   "loadSlashsGlobal": false,
   "_COMMENT_": "Set it to true, when your Slash Commands are ready, false loads instant true loads slow but stable! (GLOBAL/GUILD COMMANDS, DISCORD DOCS!)",

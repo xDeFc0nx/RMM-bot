@@ -61,7 +61,7 @@ module.exports = {
       if(reason.length > 1024 ) reason = reason.slice(0, 1021) + '...';
       await member.ban({reason: reason});
       const embed3 = new MessageEmbed()
-        .setColor("RED")
+        .setColor("GREEN")
         .setDescription(` ${member} was banned, he most have said somthing`)
         .addField('Reason', `${reason}`)
         .setFooter(message.member.displayName, message.author.displayAvatarURL({dynamic: true}))
