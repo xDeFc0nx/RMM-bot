@@ -43,7 +43,7 @@ module.exports = {
       .setColor("GREEN");
 
       
-    await guild.channel.cache(OPENTICKET).send({ embeds: [em], components: [row] });
+    await guild.channels.cache(OPENTICKET).send({ embeds: [em], components: [row] });
 
     interaction.reply({ content: "done", ephemeral: true });
     Console.log(interaction);

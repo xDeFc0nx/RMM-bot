@@ -2,11 +2,18 @@
  * @INFO
  * Loading all needed File Everyone Parameters
  */
-const config = require("../../botconfig/config.json"); //loading config file with token and prefix
-const settings = require("../../botconfig/settings.json"); //loading settings file with the settings
-const ee = require("../../botconfig/embed.json"); //Loading all embed settings like color footertext and icon ...
-const Discord = require("discord.js"); //this is the official discord.js wrapper for the Discord Api, which we use!
-//here the event starts
-module.exports = (client, member) => { 
-    //Do some code, once the Bot joined the Server
-}
+
+const config = require("../../botconfig/config.json");
+const settings = require("../../botconfig/settings.json");
+const ee = require("../../botconfig/embed.json");
+const Discord = require("discord.js");
+const profileModel = require("../../schemas/profileSchema");
+
+module.exports = (client, discord, member) => {
+  let profile = await profileModel.create({
+    userID: member.id,
+    serverID: member.guild.id,
+    dinar: 0,
+  });
+  profile.save();
+};
