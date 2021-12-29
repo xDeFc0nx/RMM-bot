@@ -74,6 +74,7 @@ module.exports = {
         .setColor("GREEN")
         .setDescription(` ${user.toString()} was muted, he most have said somthing`)
         .addField( 'Time', `${time}`)
+        .addField( 'Reason', `${reason}`)
         .setFooter(message.member.displayName, message.author.displayAvatarURL({dynamic: true}))
       message.channel.send({
         embeds: [send],
