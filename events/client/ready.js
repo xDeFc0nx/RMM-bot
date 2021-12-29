@@ -2,13 +2,18 @@
 const config = require("../../botconfig/config.json");
 const { change_status } = require("../../handlers/functions");
 const mongoose = require("mongoose");
-const { Database } = require("../../botconfig/config.json");
+const db = require("../guild/db");
 module.exports = (client) => {
   //SETTING ALL GUILD DATA FOR THE DJ ONLY COMMANDS for the DEFAULT
   //client.guilds.cache.forEach(guild=>client.settings.set(guild.id, ["autoplay", "clearqueue", "forward", "loop", "jump", "loopqueue", "loopsong", "move", "pause", "resume", "removetrack", "removedupe", "restart", "rewind", "seek", "shuffle", "skip", "stop", "volume"], "djonlycmds"))
 
   client.on("ready", async () => {
-    await mongoose.connect(Database, { keepAlive: true });
+    await db().then((mongoose) => {
+      try {
+        console.log("connected");
+      } finally {
+      }
+    });
   });
 
   try {

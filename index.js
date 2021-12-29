@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const config = require(`./botconfig/config.json`);
 const settings = require(`./botconfig/settings.json`);
 const colors = require("colors");
+const db = require("./events/guild/db");
 const client = new Discord.Client({
   //fetchAllMembers: false,
   //restTimeOffset: 0,
