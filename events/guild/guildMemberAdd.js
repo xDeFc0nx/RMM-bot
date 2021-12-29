@@ -10,10 +10,10 @@ const Discord = require("discord.js");
 const profileModel = require("../../schemas/profileSchema");
 
 module.exports = (client, discord, member) => {
-  let profile = await profileModel.create({
-    userID: member.id,
-    serverID: member.guild.id,
-    dinar: 0,
-  });
-  profile.save();
+  // let profile = await profileModel.create({
+  //   userID: member.id,
+  //   serverID: member.guild.id,
+  //   dinar: 0,
+  // });
+  // profile.save();
 };

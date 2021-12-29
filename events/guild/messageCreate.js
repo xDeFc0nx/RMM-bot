@@ -7,20 +7,20 @@ const profileModel = require("../../schemas/profileSchema");
 
 const Discord = require("discord.js");
 module.exports = async (client, message) => {
-  let profileData;
-  try {
-    profileData = await profileModel.findOne({ userID: message.author.id });
-    if (!profileData) {
-      let profile = await profileModel.create({
-        userID: message.author.id,
-        serverID: member.guild,
-        dinar: 0,
-      });
-    }
-    profile.save;
-  } catch (err) {
-    console.log(err);
-  }
+  // let profileData;
+  // try {
+  //   profileData = await profileModel.findOne({ userID: message.author.id });
+  //   if (!profileData) {
+  //     let profile = await profileModel.create({
+  //       userID: message.author.id,
+  //       serverID: member.guild,
+  //       dinar: 0,
+  //     });
+  //   }
+  //   profile.save;
+  // } catch (err) {
+  //   console.log(err);
+  // }
   if (!message.guild || !message.channel || message.author.bot) return;
   if (message.channel.partial) await message.channel.fetch();
   if (message.partial) await message.fetch();
