@@ -34,7 +34,13 @@ module.exports = {
         message.guild.members
           .unban(message.content.split(" ")[1])
           .then((user) => {
-            message.channel.send(`Unbanned ${user.id}`);
+            const embed3 = new MessageEmbed()
+            .setColor("GREEN")
+            .setDescription(` ${user.id} was unbanned`)
+            .setFooter(message.member.displayName, message.author.displayAvatarURL({dynamic: true}))
+          message.channel.send({
+            embeds: [embed3],
+          })
           })
           .catch((error) =>
             message.channel.send({
