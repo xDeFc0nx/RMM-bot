@@ -17,3 +17,4 @@ module.exports = function () {
   dbConnection.on("error", (err) => console.log(`Connection error ${err}`));
   dbConnection.once("open", () => "");
   return "Success";
+};
