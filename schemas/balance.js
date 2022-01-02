@@ -1,16 +1,12 @@
-const { model, Schema } = require("mongoose");
+const mongoose = require("mongoose");
+
+const model = mongoose.model;
+const Schema = mongoose.Schema;
 
 module.exports = model(
-  "Balance",
+  "Wallet",
   new Schema({
-
-    _id: mongoose.Schema.Types.ObjectId,
-    guildId: String,
-    memberId: String,
-    amount: {type: number, default:0}
+    memberId: Number,
+    amount: { type: Number, default: 0 },
   })
 );
-
- 
- 
- 

@@ -1,53 +1,20 @@
-//here the event starts
-const config = require("../../botconfig/config.json")
-const { change_status } = require("../../handlers/functions");
-const mongoose = require('mongoose')
-const {Database} = require("../../botconfig/config.json")
-module.exports = client => {
-  //SETTING ALL GUILD DATA FOR THE DJ ONLY COMMANDS for the DEFAULT
-  //client.guilds.cache.forEach(guild=>client.settings.set(guild.id, ["autoplay", "clearqueue", "forward", "loop", "jump", "loopqueue", "loopsong", "move", "pause", "resume", "removetrack", "removedupe", "restart", "rewind", "seek", "shuffle", "skip", "stop", "volume"], "djonlycmds"))
-  
-
-  try{
-    
-    try{
-
-
-
-
-      if(!Database){
-        mongoose.connect(Database,{
-          useNewUrlParser: true,
-          useUnifiedTopology: true
-    
-        }).then(() =>{
-          console.log("\n")
-      console.log(`     ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓`.bold.brightGreen)
-      console.log(`     ┃ `.bold.brightGreen + " ".repeat(-1+stringlength-` ┃ `.length)+ "┃".bold.brightGreen)
-      console.log(`     ┃ `.bold.brightGreen + `Database connected`.bold.brightGreen + " ".repeat(-1+stringlength-` ┃ `.length-`Discord Bot is online!`.length)+ "┃".bold.brightGreen)
-      console.log(`     ┃ `.bold.brightGreen + ` /--/ ${client.user.tag} /--/ `.bold.brightGreen+ " ".repeat(-1+stringlength-` ┃ `.length-` /--/ ${client.user.tag} /--/ `.length)+ "┃".bold.brightGreen)
-      console.log(`     ┃ `.bold.brightGreen + " ".repeat(-1+stringlength-` ┃ `.length)+ "┃".bold.brightGreen)
-      console.log(`     ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛`.bold.brightGreen)
-        }).catch((err) =>{
-          console.log(err)
-        }) 
-      }
-      const stringlength = 69;
-      console.log("\n")
-      console.log(`     ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓`.bold.brightGreen)
-      console.log(`     ┃ `.bold.brightGreen + " ".repeat(-1+stringlength-` ┃ `.length)+ "┃".bold.brightGreen)
-      console.log(`     ┃ `.bold.brightGreen + `Discord Bot is online!`.bold.brightGreen + " ".repeat(-1+stringlength-` ┃ `.length-`Discord Bot is online!`.length)+ "┃".bold.brightGreen)
-      console.log(`     ┃ `.bold.brightGreen + ` /--/ ${client.user.tag} /--/ `.bold.brightGreen+ " ".repeat(-1+stringlength-` ┃ `.length-` /--/ ${client.user.tag} /--/ `.length)+ "┃".bold.brightGreen)
-      console.log(`     ┃ `.bold.brightGreen + " ".repeat(-1+stringlength-` ┃ `.length)+ "┃".bold.brightGreen)
-      console.log(`     ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛`.bold.brightGreen)
-    }catch{ /* */ }
-    change_status(client);
-    //loop through the status per each 10 minutes
-    setInterval(()=>{
-      change_status(client);
-    }, 15 * 1000);
-    
-  } catch (e){
-    console.log(String(e.stack).grey.italic.dim.bgRed)
+const mongoose = require("mongoose");
+const mongoAtlasUri =
+  "mongodb+srv://nehar:aezakmi@cluster0.9pfhd.mongodb.net/Cluster0?retryWrites=true&w=majority";
+module.exports = function () {
+  try {
+    // Connect to the MongoDB cluster
+    mongoose.connect(
+      mongoAtlasUri,
+      { useNewUrlParser: true, useUnifiedTopology: true },
+      () => console.log(" Mongoose is connected")
+    );
+  } catch (e) {
+    console.log("could not connect", e);
   }
-}
+
+  const dbConnection = mongoose.connection;
+  dbConnection.on("error", (err) => console.log(`Connection error ${err}`));
+  dbConnection.once("open", () => "");
+  return "Success";
+};
