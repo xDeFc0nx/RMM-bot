@@ -14,16 +14,9 @@ module.exports = {
   cooldown: 3600, //the command cooldown for execution & for helpcmd [OPTIONAL]
   usage: "serverinfo", //the command usage for helpcmd [OPTIONAL]
   description: "Shows Everyone about the Server", //the command description for helpcmd [OPTIONAL]
-  memberpermissions: [], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
-  requiredroles: [], //Only allow specific Users with a Role to execute a Command [OPTIONAL]
-  alloweduserids: [], //Only allow specific Users to execute a Command [OPTIONAL]
-  minargs: 0, // minimum args for the message, 0 == none [OPTIONAL]
-  maxargs: 0, // maximum args for the message, 0 == none [OPTIONAL]
-  minplusargs: 0, // minimum args for the message, splitted with "++" , 0 == none [OPTIONAL]
-  maxplusargs: 0, // maximum args for the message, splitted with "++" , 0 == none [OPTIONAL]
-  argsmissing_message: "", //Message if the user has not enough args / not enough plus args, which will be sent, leave emtpy / dont add, if you wanna use command.usage or the default message! [OPTIONAL]
-  argstoomany_message: "", //Message if the user has too many / not enough args / too many plus args, which will be sent, leave emtpy / dont add, if you wanna use command.usage or the default message! [OPTIONAL]
   run: async (client, message) => {
+
+
     Wallet.exists({ memberId: message.author.id }).then(async (x) => {
       if (x) {
         const bal = await Wallet.findOne({ memberId: message.author.id });
@@ -32,6 +25,13 @@ module.exports = {
           { memberId: message.author.id },
           { amount: new_bal }
         ).then((x) => console.log(x));
+        const send = new MessageEmbed()
+    .setColor("GREEN")
+    .setDescription(`You earned 200 Dirham`)
+    .setFooter(message.member.displayName, message.author.displayAvatarURL({dynamic: true}))
+  message.reply({
+    embeds: [send],
+  });
       } else {
         Wallet.create({
           memberId: message.author.id,
