@@ -65,8 +65,7 @@ module.exports = {
             Wallet.findOneAndUpdate(
               { memberId: message.author.id },
               { amount: new_bal }
-            );
-
+            ).then((x) => console.log(x));
             const embeduserinfo = new MessageEmbed();
             embeduserinfo.setTitle("Success");
             embeduserinfo.setDescription(
