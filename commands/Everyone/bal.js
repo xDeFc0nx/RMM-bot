@@ -15,36 +15,68 @@ module.exports = {
   usage: "serverinfo", //the command usage for helpcmd [OPTIONAL]
   description: "Shows Everyone about the Server", //the command description for helpcmd [OPTIONAL]
   run: async (client, message) => {
-    Wallet.exists({ memberId: message.author.id }).then(async (x) => {
-      if (x) {
-        const bal = await Wallet.findOne({ memberId: message.author.id });
-        const has_bal = bal["amount"];
-        const send = new MessageEmbed()
-          .setColor("GREEN")
-          .setDescription(`You have ${has_bal} Dirham`)
-          .setFooter(
-            message.member.displayName,
-            message.author.displayAvatarURL({ dynamic: true })
-          );
-        message.reply({
-          embeds: [send],
-        });
-      } else {
-        Wallet.create({
-          memberId: message.author.id,
-          amount: 0,
-        });
-        const send = new MessageEmbed()
-          .setColor("GREEN")
-          .setDescription(`You have 0 Dirham`)
-          .setFooter(
-            message.member.displayName,
-            message.author.displayAvatarURL({ dynamic: true })
-          );
-        message.reply({
-          embeds: [send],
-        });
-      }
-    });
+    if (message.mentions.members.first()) {
+      Wallet.exists({
+        memberId: message.mentions.members.first()["user"]["id"],
+      }).then(async (x) => {
+        if (x) {
+          const bal = await Wallet.findOne({
+            memberId: message.mentions.members.first()["user"]["id"],
+          });
+          const has_bal = bal["amount"];
+          const send = new MessageEmbed()
+            .setColor("GREEN")
+            .setDescription(`You have ${has_bal} Dirham`)
+            .setFooter(message.mentions.members.first()["user"]["username"]);
+          message.reply({
+            embeds: [send],
+          });
+        } else {
+          Wallet.create({
+            memberId: message.author.id,
+            amount: 0,
+          });
+          const send = new MessageEmbed()
+            .setColor("GREEN")
+            .setDescription(`You have 0 Dirham`)
+            .setFooter(message.mentions.members.first()["user"]["username"]);
+          message.reply({
+            embeds: [send],
+          });
+        }
+      });
+    } else {
+      Wallet.exists({ memberId: message.author.id }).then(async (x) => {
+        if (x) {
+          const bal = await Wallet.findOne({ memberId: message.author.id });
+          const has_bal = bal["amount"];
+          const send = new MessageEmbed()
+            .setColor("GREEN")
+            .setDescription(`You have ${has_bal} Dirham`)
+            .setFooter(
+              message.member.displayName,
+              message.author.displayAvatarURL({ dynamic: true })
+            );
+          message.reply({
+            embeds: [send],
+          });
+        } else {
+          Wallet.create({
+            memberId: message.author.id,
+            amount: 0,
+          });
+          const send = new MessageEmbed()
+            .setColor("GREEN")
+            .setDescription(`You have 0 Dirham`)
+            .setFooter(
+              message.member.displayName,
+              message.author.displayAvatarURL({ dynamic: true })
+            );
+          message.reply({
+            embeds: [send],
+          });
+        }
+      });
+    }
   },
 };
