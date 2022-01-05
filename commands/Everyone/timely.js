@@ -15,8 +15,6 @@ module.exports = {
   usage: "serverinfo", //the command usage for helpcmd [OPTIONAL]
   description: "Shows Everyone about the Server", //the command description for helpcmd [OPTIONAL]
   run: async (client, message) => {
-
-
     Wallet.exists({ memberId: message.author.id }).then(async (x) => {
       if (x) {
         const bal = await Wallet.findOne({ memberId: message.author.id });
@@ -26,12 +24,15 @@ module.exports = {
           { amount: new_bal }
         ).then((x) => console.log(x));
         const send = new MessageEmbed()
-    .setColor("GREEN")
-    .setDescription(`You earned 200 Dirham`)
-    .setFooter(message.member.displayName, message.author.displayAvatarURL({dynamic: true}))
-  message.reply({
-    embeds: [send],
-  });
+          .setColor("GREEN")
+          .setDescription(`You earned 200 Dirham`)
+          .setFooter(
+            message.member.displayName,
+            message.author.displayAvatarURL({ dynamic: true })
+          );
+        message.reply({
+          embeds: [send],
+        });
       } else {
         Wallet.create({
           memberId: message.author.id,
