@@ -30,6 +30,11 @@ module.exports = {
             message.member.displayName,
             message.author.displayAvatarURL({ dynamic: true })
           );
+          send.addField(
+            "You now have",
+            `\`${new_bal}\``,
+            true
+          );
         message.reply({
           embeds: [send],
         });

@@ -88,9 +88,14 @@ module.exports = {
           }
         }
       } else {
-        message.channel.sent(
-          "Bruh you don't even have an account, do !timely first"
-        );
+        const send = new MessageEmbed()
+    .setColor("GREEN")
+    .setDescription(`Bruh you don't even have an account, do !timely first`)
+    .setFooter(message.member.displayName, message.author.displayAvatarURL({dynamic: true}))
+  message.channel.send({
+    embeds: [send],
+  });
+      
       }
     });
   },

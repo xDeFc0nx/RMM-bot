@@ -46,14 +46,38 @@ module.exports = {
       const messageEmbed = new MessageEmbed();
       messageEmbed.setTitle("Shop 2.0");
       messageEmbed.setDescription(
-        "You can buy the following roles using `!buy` with id of the role such as 1 for Jundullah and 6 for Jundun"
+        "You can buy the following roles using `!buy`"
       );
-      messageEmbed.addField("`1]@Jundun`", "1k Dirham", false);
-      messageEmbed.addField("`2]@Emir`", "2.5k Dirham", false);
-      messageEmbed.addField("`3]@Furusiyyah`", "10k Dirham", false);
-      messageEmbed.addField("`4]@Rijal`", "15k Dirham", false);
-      messageEmbed.addField("`5]@Mubarizun`", "30k Dirham", false);
-      messageEmbed.addField("`6]@Jundullah`", "50k Dirham", false);
+      messageEmbed.addField(
+        "`1`",
+        `<:discord_reply_continued:923683428816261180> <@&927213675981455460>\n <:discord_reply:923683615102087178> 1k Dirham`,
+        true
+      );
+      messageEmbed.addField(
+        "`2`",
+        `<:discord_reply_continued:923683428816261180> <@&927213744038232065> \n <:discord_reply:923683615102087178> 2.5k Dirham`,
+        true
+      );
+      messageEmbed.addField(
+        "`3`",
+        `<:discord_reply_continued:923683428816261180><@&927213746525466624> \n <:discord_reply:923683615102087178> 10k Dirham`,
+        true
+      );
+      messageEmbed.addField(
+        "`4`",
+        `<:discord_reply_continued:923683428816261180> <@&927213745632079883> \n <:discord_reply:923683615102087178> 15k Dirham`,
+        true
+      );
+      messageEmbed.addField(
+        "`5`",
+        `<:discord_reply_continued:923683428816261180><@&927213744776437791> \n <:discord_reply:923683615102087178> 30k Dirham`,
+        true
+      );
+      messageEmbed.addField(
+        "`6`",
+        `<:discord_reply_continued:923683428816261180> <@&927213734944981052> \n <:discord_reply:923683615102087178> 50k Dirham`,
+        true
+      );
       message.channel.send({
         embeds: [messageEmbed],
       });
