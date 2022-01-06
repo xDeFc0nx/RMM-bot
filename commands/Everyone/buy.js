@@ -7,24 +7,24 @@ const settings = require("../../botconfig/settings.json");
 const Wallet = require("../../schemas/balance.js");
 
 const data = [
-  { name: "Jundun", id: "927213675981455460", buy: 1000 },
+  { name: `<@&927213675981455460>`, id: "927213675981455460", buy: 1000 },
   {
-    name: "Emir",
+    name: `<@&927213744038232065> `,
     id: "927213744038232065",
     buy: 2500,
   },
   {
-    name: "Furusiyyah",
+    name: `<@&927213746525466624> `,
     id: "927213746525466624",
     buy: 10000,
   },
   {
-    name: "Rijal",
+    name: `<@&927213745632079883> `,
     id: "927213745632079883",
     buy: 15000,
   },
-  { name: "Mubarizun", id: "927213744776437791", buy: 30000 },
-  { name: "Jundullah", id: "927213734944981052", buy: 50000 },
+  { name: `<@&927213744776437791> `, id: "927213744776437791", buy: 30000 },
+  { name: `<@&927213734944981052> `, id: "927213734944981052", buy: 50000 },
 ];
 module.exports = {
   name: "buy", //the command name for execution & for helpcmd [OPTIONAL]
@@ -40,12 +40,15 @@ module.exports = {
         user_has = bal["amount"];
         user_needs = data[args[0] - 1]["buy"];
         if (user_needs > user_has) {
-          message.channel.send(
-            "bro you need " +
-              String(user_needs - user_has) +
-              " more dinars to buy the role you requested i.e " +
-              data[args[0] - 1]["name"]
-          );
+          const error1 = new MessageEmbed()
+            .setColor("RED")
+            .setDescription(
+              "Habibi you need " +
+                String(user_needs - user_has) +
+                " more Dirham to buy " +
+                data[args[0] - 1]["name"]
+            );
+          message.reply({ embeds: [error1] });
         } else {
           let role = message.guild.roles.cache.find(
             (r) => r.id === data[args[0] - 1]["id"]
@@ -56,9 +59,12 @@ module.exports = {
               (role) => role.id == data[args[0] - 1]["id"]
             )
           ) {
-            message.channel.send(
-              "You already have the role buy something else bro"
-            );
+            const error2 = new MessageEmbed()
+              .setColor("RED")
+              .setDescription(
+                "You already have the role buy something else bro"
+              );
+            message.reply({ embeds: [error2] });
           } else {
             message.member.roles.add(role);
             const new_bal = user_has - user_needs;
@@ -88,14 +94,12 @@ module.exports = {
           }
         }
       } else {
-        const send = new MessageEmbed()
-    .setColor("GREEN")
-    .setDescription(`Bruh you don't even have an account, do !timely first`)
-    .setFooter(message.member.displayName, message.author.displayAvatarURL({dynamic: true}))
-  message.channel.send({
-    embeds: [send],
-  });
-      
+        const error3 = new MessageEmbed()
+          .setColor("RED")
+          .setDescription(
+            "Bruh you don't even have an account, do !timely first"
+          );
+        message.reply({ embeds: [error3] });
       }
     });
   },
