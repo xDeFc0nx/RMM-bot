@@ -5,7 +5,11 @@ var ee = require("../../botconfig/embed.json");
 const moment = require("moment");
 const settings = require("../../botconfig/settings.json");
 const data = [
-  { name: "Jundun", id: "927213675981455460", buy: 1000 },
+  {
+    name: "Jundun",
+    id: "927213675981455460",
+    buy: 1000,
+  },
   {
     name: "Emir",
     id: "927213744038232065",
@@ -21,8 +25,16 @@ const data = [
     id: "927213745632079883",
     buy: 15000,
   },
-  { name: "Mubarizun", id: "927213744776437791", buy: 30000 },
-  { name: "Jundullah", id: "927213734944981052", buy: 50000 },
+  {
+    name: "Mubarizun",
+    id: "927213744776437791",
+    buy: 30000,
+  },
+  {
+    name: "Jundullah",
+    id: "927213734944981052",
+    buy: 50000,
+  },
 ];
 module.exports = {
   name: "shop", //the command name for execution & for helpcmd [OPTIONAL]
