@@ -81,11 +81,15 @@ This is a bot made for our server
    ```sh
    npm install
    ```
-3. Enter your BOT TOKEN and mongoose connection in `botconfig/config.js`
+3. Enter your bot token in `botconfig/config.js`
    ```js
      "token": "YOUR TOKEN HERE",
-  "Database": "MONGOOSE CONNECTION HERE",
    ```
+4. Enter your  mongoose connection in `botconfig/config.js`
+   ```js
+     "Database": "MONGOOSE CONNECTION HERE",
+   ```
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
