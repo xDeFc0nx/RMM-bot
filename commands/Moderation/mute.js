@@ -29,9 +29,7 @@ module.exports = {
     const fetch = require("node-fetch");
     const ms = require("ms");
     const time = args.slice(1).join(" ");
-    const reason = args.slice(1).join(" ");
-    if (!reason) reason = "`None`";
-    if (reason.length > 1024) reason = reason.slice(0, 1021) + "...";
+    
 
     if (!time) {
       const error = new MessageEmbed()
@@ -64,6 +62,7 @@ module.exports = {
         .setDescription("Invalid time, the limit is 10s and 28d");
       message.reply({ embeds: [error2] });
     }
+   
     const iosTime = new Date(Date.now() + m).toISOString();
 
     await fetch(
@@ -81,7 +80,7 @@ module.exports = {
     const send = new MessageEmbed()
       .setColor("GREEN")
       .setDescription(
-        ` ${user.toString()} Was muted, he most have said somthing`
+        ` ${user.toString()} Was muted, he most have said somthing `
       )
       .addField("Time", `${time}`)
       .setFooter(
