@@ -24,15 +24,14 @@ module.exports = {
   argsmissing_message: "You are missing the text you wanna add to the message!", //Message if the user has not enough args / not enough plus args, which will be sent, leave emtpy / dont add, if you wanna use command.usage or the default message! [OPTIONAL]
   argstoomany_message: "You are having too many arguments for this Command!", //Message if the user has too many / not enough args / too many plus args, which will be sent, leave emtpy / dont add, if you wanna use command.usage or the default message! [OPTIONAL]
   run: async (client, message, args, plusArgs, cmdUser, text, prefix) => {
+    let member = message.mentions.members.first();
 
-
-    const fetch = require('node-fetch')
-    const ms = require('ms')
+    const fetch = require("node-fetch");
+    const ms = require("ms");
     const time = args.slice(1).join(" ");
-    const reason = args.slice(1).join(' ');
-    if(!reason) reason = '`None`';
-    if(reason.length > 1024 ) reason = reason.slice(0, 1021) + '...';
-    
+    const reason = args.slice(1).join(" ");
+    if (!reason) reason = "`None`";
+    if (reason.length > 1024) reason = reason.slice(0, 1021) + "...";
 
     if (!time) {
       const error = new MessageEmbed()
@@ -41,42 +40,56 @@ module.exports = {
       message.reply({ embeds: [error] });
     }
 
-    const user = message.mentions.users.first()
-    const m = ms(time)
+    const position = new MessageEmbed()
+      .setColor("RED")
+      .setDescription(
+        "Akhi you cannot Mute somone who is higher rank or the same rank as you"
+      );
 
+    if (member.roles.highest.position >= message.member.roles.highest.position)
+      return message.reply({ embeds: [position] });
 
-    if(!user){
+    const user = message.mentions.users.first();
+    const m = ms(time);
+
+    if (!user) {
       const error1 = new MessageEmbed()
-      .setColor("RED")
-      .setDescription("Akhi Specify a user");
-    message.reply({ embeds: [error1] });
+        .setColor("RED")
+        .setDescription("Akhi Specify a user");
+      message.reply({ embeds: [error1] });
     }
-    if(!m || m < 1000 || m > 2419200000){
+    if (!m || m < 1000 || m > 2419200000) {
       const error2 = new MessageEmbed()
-      .setColor("RED")
-      .setDescription("Invalid time, the limit is 10s and 28d");
-    message.reply({ embeds: [error2] });
+        .setColor("RED")
+        .setDescription("Invalid time, the limit is 10s and 28d");
+      message.reply({ embeds: [error2] });
     }
-    const iosTime = new Date(Date.now() + m).toISOString()
+    const iosTime = new Date(Date.now() + m).toISOString();
 
-    await fetch(`https://discord.com/api/guilds/${message.guild.id}/members/${user.id}`,{
-      method: 'PATCH',
-      body: JSON.stringify({communication_disabled_until: iosTime}),
-      headers:{
-        'Content-Type': "application/json",
-        'Authorization': `Bot ${client.token}`,
-
+    await fetch(
+      `https://discord.com/api/guilds/${message.guild.id}/members/${user.id}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify({ communication_disabled_until: iosTime }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bot ${client.token}`,
+        },
       }
-  
-    })
+    );
     await message.delete();
     const send = new MessageEmbed()
-        .setColor("GREEN")
-        .setDescription(` ${user.toString()} was muted, he most have said somthing`)
-        .addField( 'Time', `${time}`)
-        .setFooter(message.member.displayName, message.author.displayAvatarURL({dynamic: true}))
-      message.channel.send({
-        embeds: [send],
-      });
+      .setColor("GREEN")
+      .setDescription(
+        ` ${user.toString()} Was muted, he most have said somthing`
+      )
+      .addField("Time", `${time}`)
+      .setFooter(
+        message.member.displayName,
+        message.author.displayAvatarURL({ dynamic: true })
+      );
+    await message.channel.send({
+      embeds: [send],
+    });
   },
 };
