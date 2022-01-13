@@ -43,7 +43,7 @@ module.exports = {
     const position = new MessageEmbed()
       .setColor("RED")
       .setDescription(
-        "Akhi you cannot Mute somone who is higher rank or the same rank as you"
+        "Akhi you cannot ban somone who is higher rank or the same rank as you"
       );
 
     if (member.roles.highest.position >= message.member.roles.highest.position)

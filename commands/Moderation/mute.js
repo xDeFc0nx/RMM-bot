@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, GuildMember } = require("discord.js");
 const { normalizeUnits } = require("moment");
 const config = require("../../botconfig/config.json");
 const ee = require("../../botconfig/embed.json");
@@ -26,7 +26,6 @@ module.exports = {
   run: async (client, message, args, plusArgs, cmdUser, text, prefix) => {
     let member = message.mentions.members.first();
 
-    const fetch = require("node-fetch");
     const ms = require("ms");
     const time = args.slice(1).join(" ");
     
@@ -56,39 +55,31 @@ module.exports = {
         .setDescription("Akhi Specify a user");
       message.reply({ embeds: [error1] });
     }
-    if (!m || m < 1000 || m > 2419200000) {
+    if (!m || m < 60000 || m > 2419200000) {
       const error2 = new MessageEmbed()
         .setColor("RED")
-        .setDescription("Invalid time, the limit is 10s and 28d");
+        .setDescription("Invalid time, the limit is 60s and 28d");
       message.reply({ embeds: [error2] });
+    }else{
+      member.timeout(m)
+
+      await message.delete();
+      const send = new MessageEmbed()
+        .setColor("GREEN")
+        .setDescription(
+          ` ${user.toString()} Was muted, he most have said somthing `
+        )
+        .addField("Time", `${time}`)
+        .setFooter(
+          message.member.displayName,
+          message.author.displayAvatarURL({ dynamic: true })
+        );
+       message.channel.send({
+        embeds: [send],
+      });
     }
    
-    const iosTime = new Date(Date.now() + m).toISOString();
 
-    await fetch(
-      `https://discord.com/api/guilds/${message.guild.id}/members/${user.id}`,
-      {
-        method: "PATCH",
-        body: JSON.stringify({ communication_disabled_until: iosTime }),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bot ${client.token}`,
-        },
-      }
-    );
-    await message.delete();
-    const send = new MessageEmbed()
-      .setColor("GREEN")
-      .setDescription(
-        ` ${user.toString()} Was muted, he most have said somthing `
-      )
-      .addField("Time", `${time}`)
-      .setFooter(
-        message.member.displayName,
-        message.author.displayAvatarURL({ dynamic: true })
-      );
-    await message.channel.send({
-      embeds: [send],
-    });
+  
   },
 };
