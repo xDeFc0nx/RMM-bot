@@ -28,7 +28,6 @@ module.exports = {
 
     const ms = require("ms");
     const time = args.slice(1).join(" ");
-    
 
     if (!time) {
       const error = new MessageEmbed()
@@ -60,8 +59,9 @@ module.exports = {
         .setColor("RED")
         .setDescription("Invalid time, the limit is 60s and 28d");
       message.reply({ embeds: [error2] });
-    }else{
-      member.timeout(m)
+    } else {
+      console.log(m);
+      member.timeout(m);
 
       await message.delete();
       const send = new MessageEmbed()
@@ -74,12 +74,9 @@ module.exports = {
           message.member.displayName,
           message.author.displayAvatarURL({ dynamic: true })
         );
-       message.channel.send({
+      message.channel.send({
         embeds: [send],
       });
     }
-   
-
-  
   },
 };

@@ -38,16 +38,29 @@ module.exports = {
                 message.guild.members.cache.get(w.moderator).user.tag
               }, Reason: ${w.reason}`
           );
-          const embed1 = new MessageEmbed()
-            .setColor("DARK_RED")
-            .setDescription(e.join(" "))
-            .setFooter(
-              message.member.displayName,
-              message.author.displayAvatarURL({ dynamic: true })
-            );
-          message.channel.send({
-            embeds: [embed1],
-          });
+          if (e.length < 1) {
+            const embed1 = new MessageEmbed()
+              .setColor("GREEN")
+              .setDescription(user.toString() + `Has no warnings alhamdulilah`)
+              .setFooter(
+                message.member.displayName,
+                message.author.displayAvatarURL({ dynamic: true })
+              );
+            message.channel.send({
+              embeds: [embed1],
+            });
+          } else {
+            const embed1 = new MessageEmbed()
+              .setColor("DARK_RED")
+              .setDescription(e.join(" "))
+              .setFooter(
+                message.member.displayName,
+                message.author.displayAvatarURL({ dynamic: true })
+              );
+            message.channel.send({
+              embeds: [embed1],
+            });
+          }
         } else {
           const embed2 = new MessageEmbed()
             .setColor("GREEN")

@@ -44,7 +44,7 @@ module.exports = {
     warndb.findOne(
       {
         guild: message.guild.id,
-        user: user.user.id,
+        user: user?.user.id,
       },
       async (err, data) => {
         if (err) throw err;
