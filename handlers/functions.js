@@ -42,6 +42,7 @@ module.exports.replacemsg = replacedefaultmessages;
  * }
  * @returns STRING
  */
+
 function replacedefaultmessages(text, o = {}) {
   if (!text || text == undefined || text == null)
     throw "No Text for the replacedefault message added as First Parameter";

@@ -1,6 +1,6 @@
 {
   "name": "RMM bot",
-  "version": "1.7.3",
+  "version": "1.7.9",
   "main": "src/index.js",
   "author": "DeFc0n",
   "license": "MIT",
@@ -16,3 +16,5 @@
     "nodemon": "^2.0.15"
   }
 }
+
+

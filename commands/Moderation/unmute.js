@@ -3,7 +3,7 @@ const { normalizeUnits } = require("moment");
 const config = require("../../botconfig/config.json");
 const ee = require("../../botconfig/embed.json");
 module.exports = {
-  name: "mute", //the Command Name
+  name: "unmute", //the Command Name
   category: "Moderation", //the Command Category [OPTIONAL]
   aliases: [], //the command aliases [OPTIONAL]
   cooldown: 2, //the Command Cooldown (Default in /botconfig/settings.json) [OPTIONAL]
@@ -26,28 +26,12 @@ module.exports = {
   run: async (client, message, args, plusArgs, cmdUser, text, prefix) => {
     let member = message.mentions.members.first();
 
-    const ms = require("ms");
-    const time = args.slice(1).join(" ");
 
-    if (!time) {
-      const error = new MessageEmbed()
-        .setColor("RED")
-        .setDescription("Specify the Time");
-      message.reply({ embeds: [error] });
-    }
-
-    const position = new MessageEmbed()
-      .setColor("RED")
-      .setDescription(
-        "Akhi you cannot Mute somone who is higher rank or the same rank as you"
-      );
 
     if (member.roles.highest.position >= message.member.roles.highest.position)
       return message.reply({ embeds: [position] });
 
     const user = message.mentions.users.first();
-    const m = ms(time);
-
    
 
     if (!user) {
@@ -55,26 +39,15 @@ module.exports = {
         .setColor("RED")
         .setDescription("Akhi Specify a user");
       message.reply({ embeds: [error1] });
-    }
-    const reason = args.slice(1).join(" ")
-
-    if (!m || m < 60000 || m > 2419200000) {
-      const error2 = new MessageEmbed()
-        .setColor("RED")
-        .setDescription("Invalid time, the limit is 60s and 28d");
-      message.reply({ embeds: [error2] });
-    } 
- else {
-      console.log(m);
-      member.timeout(m);
+    } else {
+      member.timeout(null)
 
       await message.delete();
       const send = new MessageEmbed()
         .setColor("GREEN")
         .setDescription(
-          ` ${user.toString()} Was muted, he most have said somthing `
+          ` ${user.toString()} Was unmuted`
         )
-        .addField("Info", `${time}`)
         .setFooter(
           message.member.displayName,
           message.author.displayAvatarURL({ dynamic: true })
