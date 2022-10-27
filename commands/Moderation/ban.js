@@ -36,7 +36,7 @@ module.exports = {
 
     const urs = new MessageEmbed()
       .setColor("RED")
-      .setDescription("hahah akhi you cant ban yourslef");
+      .setDescription("hahah akhi you cant ban yourself");
 
     if (member === message.member) return message.reply({ embeds: [urs] });
 
