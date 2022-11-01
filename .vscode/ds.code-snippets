@@ -1,0 +1,43 @@
+{
+  // Place your RMM-bot workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  "creates deviants command": {
+    "prefix": "ds",
+    "body": [
+      "const { MessageEmbed } = require(\"discord.js\");",
+      "const { normalizeUnits } = require(\"moment\");",
+      "const config = require(\"../../botconfig/config.json\");",
+      "const ee = require(\"../../botconfig/embed.json\");",
+      "module.exports = {",
+      "  name: \"${1}\",",
+      "  category: \"Deviants\",",
+      "  aliases: [],",
+      "  cooldown: 2,",
+      "  usage: \"\",",
+      "  description: \"Posts refutations of ${2}\",",
+      "  argstoomany_message: \"You are having too many arguments for this Command!\", //Message if the user has too many / not enough args / too many plus args, which will be sent, leave emtpy / dont add, if you wanna use command.usage or the default message! [OPTIONAL]",
+      "  run: async (client, message, args, plusArgs, cmdUser, text, prefix) => {",
+      "    const embed = new MessageEmbed()",
+      "      .setColor(\"#303136\")",
+      "      .setTitle(`${3} Refuted`)",
+      "      .addFields({",
+      "        name: \"Refutations\",",
+      "        value: `",
+      "          []()",
+      "         `});",
+      "",
+      "    message.channel.send({",
+      "      embeds: [embed],",
+      "    });",
+      "  },",
+      "};",
+      ""
+    ],
+    "description": "creates deviants command"
+  }
+}
