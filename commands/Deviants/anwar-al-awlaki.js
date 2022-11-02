@@ -8,14 +8,14 @@ module.exports = {
   aliases: [],
   cooldown: 2,
   usage: "",
-  description: "Posts refutations of Anwar Al Awlaki",
+  description: "Posts Videos of Anwar Al Awlaki",
   argstoomany_message: "You are having too many arguments for this Command!", //Message if the user has too many / not enough args / too many plus args, which will be sent, leave emtpy / dont add, if you wanna use command.usage or the default message! [OPTIONAL]
   run: async (client, message, args, plusArgs, cmdUser, text, prefix) => {
     const embed = new MessageEmbed()
       .setColor("#303136")
       .setTitle(`Anwar Al Awlaki Refuted`)
       .addFields({
-        name: "Refutations",
+        name: "Videos",
         value: `
         [Refutation of Anwar al-Awlaki's Khariji methodology](https://youtu.be/bUDrlAZWadE) \n
         [Anwar al Awlaki refuted: The story of the Boy and the King](https://youtu.be/_qXQL9zVXT4) \n

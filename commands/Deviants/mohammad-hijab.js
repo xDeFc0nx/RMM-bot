@@ -8,14 +8,14 @@ module.exports = {
   aliases: [],
   cooldown: 2,
   usage: "",
-  description: "Posts refutations of Mohammad hijab",
+  description: "Posts Videos of Mohammad hijab",
   argstoomany_message: "You are having too many arguments for this Command!", //Message if the user has too many / not enough args / too many plus args, which will be sent, leave emtpy / dont add, if you wanna use command.usage or the default message! [OPTIONAL]
   run: async (client, message, args, plusArgs, cmdUser, text, prefix) => {
     const embed = new MessageEmbed()
       .setColor("#303136")
       .setTitle(`Mohammad hijab Refuted`)
       .addFields({
-        name: "Refutations",
+        name: "Videos",
         value: `[Mohammed Hijab - Biting The Hand That Fed Him | Shamsi](https://youtu.be/kyZx2BlNWCg) \n
                 [Ali Dawah & Mohammed Hijab’s Comedy Show - Refuted by Shaykh Saleh al-Fawzaan](https://youtu.be/N4xMczQqY3s) \n
                 [Mohammed Hijab Is An Ikhwani | Refutation by Shaykh Ali al-Hudhayfi al Adeni](https://youtu.be/5IA7Lb3GN1c) \n
