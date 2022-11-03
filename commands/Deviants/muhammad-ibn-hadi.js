@@ -30,12 +30,11 @@ module.exports = {
     const button = new MessageButton()
       .setCustomId("1")
       .setLabel("⏪")
-      .setStyle("SECONDARY");
+      .setStyle("DANGER");
     const button2 = new MessageButton()
       .setCustomId("2")
       .setLabel("⏩")
-      .setStyle("SECONDARY");
-    const timeout = 10;
+      .setStyle("SUCCESS");
 
     const embed = new MessageEmbed()
       .setColor("#303136")

@@ -16,12 +16,11 @@ module.exports = {
     const button = new MessageButton()
       .setCustomId("1")
       .setLabel("⏪")
-      .setStyle("SECONDARY");
+      .setStyle("DANGER");
     const button2 = new MessageButton()
       .setCustomId("2")
       .setLabel("⏩")
-      .setStyle("SECONDARY");
-    const timeout = 10000;
+      .setStyle("SUCCESS");
 
     const embed = new MessageEmbed()
       .setColor("#303136")
@@ -53,6 +52,6 @@ module.exports = {
     const pages = [embed, embed2];
     const buttonList = [button, button2];
 
-    paginationEmbed(message, pages, buttonList, timeout);
+    paginationEmbed(message, pages, buttonList);
   },
 };
