@@ -45,14 +45,31 @@ module.exports = {
 
       const error = new MessageEmbed()
         .setColor("GREEN")
+
         .setDescription("Verified " + user.toString());
       message.channel.send({ embeds: [error] });
 
+      const welcome = new MessageEmbed()
+        .setImage(
+          "https://cdn.discordapp.com/attachments/923675875831070760/1034944076585385994/Group_42_1.png"
+        )
+        .setColor("#2f3136")
+        .setTitle("<:_:1034928180433272872> Ahlan wa sahlan        ")
+        .setDescription(
+          `asselamalekum  warahmatullahi wabarakatuh, Welcome to Manhaj Al Haq`
+        )
+
+        .addField(
+          "`Please Check the following channels and read them`",
+          "<#880565815487918221> \n  <#923675875831070760>"
+        );
+
       client.channels.cache.get("880565815487918227").send({
-        content:
-          user.toString() +
-          " Asalmualikum Warahmatullahi Wabarakatuh, Welcome to Manhaj Al Haq Please read rules in <#880565815487918221>, you can read more  <#923675875831070760>, get some roles in <#880565815487918223>, and introduce yourself in <#890121772714823680> , Thanks for joining us! :slight_smile:   ",
+        content: user.toString(),
+
         allowedMentions: { parse: ["users"] },
+
+        embeds: [welcome],
       });
     }
   },
