@@ -14,6 +14,10 @@ module.exports = {
     "923708767076503552",
     "880565815123005547",
     "923710024482705518",
+    "1102471726039838791",
+    "1035784971379552296",
+    "1102471726039838791",
+    "1035784971379552296",
   ], //Only allow specific Users with a Role to execute a Command [OPTIONAL]
   alloweduserids: [], //Only allow specific Users to execute a Command [OPTIONAL]
   minargs: 1, // minimum args for the message, 0 == none [OPTIONAL]
@@ -29,7 +33,7 @@ module.exports = {
       (r) => r.id === "881530659028496404"
     );
     let verified = message.guild.roles.cache.find(
-      (r) => r.id === "881540349649113099"
+      (r) => r.id === "1118039502552846346"
     );
 
     const user = message.mentions.users.first();

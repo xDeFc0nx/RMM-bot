@@ -12,6 +12,10 @@ module.exports = {
     "923708767076503552",
     "880565815123005547",
     "923710024482705518",
+    "1102471726039838791",
+    "1035784971379552296",
+    "1102471726039838791",
+    "1035784971379552296",
   ], //Only allow specific Users with a Role to execute a Command [OPTIONAL]
   alloweduserids: [], //Only allow specific Users to execute a Command [OPTIONAL]
   minargs: 1, // minimum args for the message, 0 == none [OPTIONAL]
@@ -35,12 +39,15 @@ module.exports = {
           .unban(message.content.split(" ")[1])
           .then((user) => {
             const embed3 = new MessageEmbed()
-            .setColor("GREEN")
-            .setDescription(` ${user.id} was unbanned`)
-            .setFooter(message.member.displayName, message.author.displayAvatarURL({dynamic: true}))
-          message.channel.send({
-            embeds: [embed3],
-          })
+              .setColor("GREEN")
+              .setDescription(` ${user.id} was unbanned`)
+              .setFooter(
+                message.member.displayName,
+                message.author.displayAvatarURL({ dynamic: true })
+              );
+            message.channel.send({
+              embeds: [embed3],
+            });
           })
           .catch((error) =>
             message.channel.send({

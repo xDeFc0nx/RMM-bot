@@ -15,6 +15,10 @@ module.exports = {
     "923708767076503552",
     "880565815123005547",
     "923710024482705518",
+    "1102471726039838791",
+    "1035784971379552296",
+    "1102471726039838791",
+    "1035784971379552296",
   ], //Only allow specific Users with a Role to execute a Command [OPTIONAL]
   alloweduserids: [], //Only allow specific Users to execute a Command [OPTIONAL]
   minargs: 1, // minimum args for the message, 0 == none [OPTIONAL]
@@ -48,27 +52,23 @@ module.exports = {
     const user = message.mentions.users.first();
     const m = ms(time);
 
-   
-
     if (!user) {
       const error1 = new MessageEmbed()
         .setColor("RED")
         .setDescription("Akhi Specify a user");
       message.reply({ embeds: [error1] });
     }
-    const reason = args.slice(1).join(" ")
+    const reason = args.slice(1).join(" ");
 
     if (!m || m < 60000 || m > 2419200000) {
       const error2 = new MessageEmbed()
         .setColor("RED")
         .setDescription("Invalid time, the limit is 60s and 28d");
       message.reply({ embeds: [error2] });
-    } 
- else {
+    } else {
       console.log(m);
       member.timeout(m);
 
-      await message.delete();
       const send = new MessageEmbed()
         .setColor("GREEN")
         .setDescription(

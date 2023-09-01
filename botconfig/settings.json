@@ -1,6 +1,6 @@
 {
-  "ownerIDS": ["439128031152570389"],
-  "default_cooldown_in_sec": 1.5,
+  "ownerIDS": ["439128031152570389", "873852007226695711"],
+  "default_cooldown_in_sec": 50,
   "antiCrash": true,
   "ping_message": true,
   "delete_commands": true,

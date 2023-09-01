@@ -14,6 +14,10 @@ module.exports = {
     "923708767076503552",
     "880565815123005547",
     "923710024482705518",
+    "1102471726039838791",
+    "1035784971379552296",
+    "1102471726039838791",
+    "1035784971379552296",
   ], //Only allow specific Users with a Role to execute a Command [OPTIONAL]
   alloweduserids: [], //Only allow specific Users to execute a Command [OPTIONAL]
   minargs: 1, // minimum args for the message, 0 == none [OPTIONAL]
@@ -26,10 +30,13 @@ module.exports = {
     let member = message.mentions.members.first();
 
     let nonVerified = message.guild.roles.cache.find(
-      (r) => r.id === "881530659028496404"
+      (r) => r.id === "1053435877034041364"
     );
     let verified = message.guild.roles.cache.find(
-      (r) => r.id === "881540349649113099"
+      (r) => r.id === "1118039502552846346"
+    );
+    let salafi = message.guild.roles.cache.find(
+      (r) => r.id === "1053435847120277514"
     );
 
     const user = message.mentions.users.first();
@@ -42,6 +49,7 @@ module.exports = {
     if (user) {
       member.roles.remove(nonVerified);
       member.roles.add(verified);
+      member.roles.add(salafi);
 
       const error = new MessageEmbed()
         .setColor("GREEN")
@@ -51,20 +59,20 @@ module.exports = {
 
       const welcome = new MessageEmbed()
         .setImage(
-          "https://cdn.discordapp.com/attachments/923675875831070760/1034944076585385994/Group_42_1.png"
+          "https://cdn.discordapp.com/attachments/1098872591072112700/1147220978385027134/Group_133.png"
         )
         .setColor("#2f3136")
         .setTitle("<:_:1034928180433272872> Ahlan wa sahlan        ")
         .setDescription(
-          `asselamalekum  warahmatullahi wabarakatuh, Welcome to Manhaj Al Haq`
+          `**As Salaamu Alaykum Wa Rahmatullahi Wa Barakaatuhu, Welcome To Ahlus Sunnah**`
         )
 
         .addField(
           "`Please Check the following channels and read them`",
-          "<#880565815487918221> \n  <#923675875831070760>"
+          "<#1053440294487588964> \n  <#923675875831070760>"
         );
 
-      client.channels.cache.get("880565815487918227").send({
+      client.channels.cache.get("1117147003051315240").send({
         content: user.toString(),
 
         allowedMentions: { parse: ["users"] },

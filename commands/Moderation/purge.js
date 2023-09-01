@@ -14,6 +14,10 @@ module.exports = {
     "923708767076503552",
     "880565815123005547",
     "923710024482705518",
+    "1102471726039838791",
+    "1035784971379552296",
+    "1102471726039838791",
+    "1035784971379552296",
   ], //Only allow specific Users with a Role to execute a Command [OPTIONAL]
   alloweduserids: [], //Only allow specific Users to execute a Command [OPTIONAL]
   minargs: 1, // minimum args for the message, 0 == none [OPTIONAL]
@@ -53,13 +57,11 @@ module.exports = {
         );
       message.reply({ embeds: [error3] });
     }
-    await message.delete()
 
     await message.channel.messages
       .fetch({ limit: args[0] })
       .then((messages) => {
         message.channel.bulkDelete(messages);
       });
-
   },
 };
