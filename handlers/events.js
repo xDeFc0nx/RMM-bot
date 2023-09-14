@@ -2,9 +2,13 @@ const fs = require("fs");
 const allevents = [];
 module.exports = async (client) => {
   try {
-    const messageEvent = require("../events/messageCreate.js");
-    client.on("messageCreate", (message) => messageEvent.run(message, client));
+    // Import the messageCreate event
+    const messageEvent = require("../events/guild/messageCreate.js");
 
+    // Set up the messageCreate event listener
+    client.on("messageCreate", (message) => {
+      // messageEvent(client, message);
+    });
     try {
       const stringlength = 69;
     } catch {

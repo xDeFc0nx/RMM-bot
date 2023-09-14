@@ -46,8 +46,8 @@ module.exports = {
         "Akhi you cannot Mute somone who is higher rank or the same rank as you"
       );
 
-    if (member.roles.highest.position >= message.member.roles.highest.position)
-      return message.reply({ embeds: [position] });
+    // if (member.roles.highest.position >= message.member.roles.highest.position)
+    //   return message.reply({ embeds: [position] });
 
     const user = message.mentions.users.first();
     const m = ms(time);

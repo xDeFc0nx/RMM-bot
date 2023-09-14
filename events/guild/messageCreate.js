@@ -4,46 +4,15 @@ const ee = require(`../../botconfig/embed.json`);
 const settings = require(`../../botconfig/settings.json`);
 const { onCoolDown, replacemsg } = require("../../handlers/functions");
 const profileModel = require("../../schemas/profileSchema");
-const Blacklist = require("../../schemas/blacklistSchema"); // Import the Blacklist schema
+
 const Discord = require("discord.js");
-const { MessageEmbed } = require("discord.js");
+
+const spamCooldowns = new Map(); // Add this line
 
 module.exports = async (client, message) => {
   // Check if the message author is a bot or if it's a DM (direct message)
   if (message.author.bot || !message.guild) return;
 
-  // Fetch the words from the MongoDB blacklist
-  const blacklistWords = await Blacklist.find({}).exec();
-
-  // Check each word in the MongoDB blacklist against the message content
-  for (const wordObject of blacklistWords) {
-    const word = wordObject.word.toLowerCase();
-    if (message.content.toLowerCase().includes(word)) {
-      message.delete();
-
-      // Send a warning message to the user
-      const warningEmbed = new MessageEmbed()
-        .setColor("RED")
-        .setDescription("Such language does not fit with a believer.");
-      message.reply({ embeds: [warningEmbed] });
-
-      // You can also log this event or take further actions as needed
-    }
-  }
-  // let profileData;
-  // try {
-  //   profileData = await profileModel.findOne({ userID: message.author.id });
-  //   if (!profileData) {
-  //     let profile = await profileModel.create({
-  //       userID: message.author.id,
-  //       serverID: member.guild,
-  //       dinar: 0,
-  //     });
-  //   }
-  //   profile.save;
-  // } catch (err) {
-  //   console.log(err);
-  // }
   if (!message.guild || !message.channel || message.author.bot) return;
   if (message.channel.partial) await message.channel.fetch();
   if (message.partial) await message.fetch();
@@ -77,22 +46,22 @@ module.exports = async (client, message) => {
   if (!command) command = client.commands.get(client.aliases.get(cmd));
   if (command) {
     //Check if user is on cooldown with the cmd,  Function from /handlers/functions.js
-    if (onCoolDown(message, command)) {
-      return message.reply({
-        embeds: [
-          new Discord.MessageEmbed()
-            .setColor(ee.wrongcolor)
-            .setFooter(ee.footertext, ee.footericon)
-            .setTitle(
-              replacemsg(settings.messages.cooldown, {
-                prefix: prefix,
-                command: command,
-                timeLeft: onCoolDown(message, command),
-              })
-            ),
-        ],
-      });
-    }
+    // if (onCoolDown(message, command)) {
+    //   return message.reply({
+    //     embeds: [
+    //       new Discord.MessageEmbed()
+    //         .setColor(ee.wrongcolor)
+    //         .setFooter(ee.footertext, ee.footericon)
+    //         .setTitle(
+    //           replacemsg(settings.messages.cooldown, {
+    //             prefix: prefix,
+    //             command: command,
+    //             timeLeft: onCoolDown(message, command),
+    //           })
+    //         ),
+    //     ],
+    //   });
+    // }
     try {
       //if Command has specific permission return error
       if (

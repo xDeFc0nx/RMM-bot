@@ -30,13 +30,10 @@ module.exports = {
     let member = message.mentions.members.first();
 
     let nonVerified = message.guild.roles.cache.find(
-      (r) => r.id === "1053435877034041364"
+      (r) => r.id === "881530659028496404"
     );
     let verified = message.guild.roles.cache.find(
-      (r) => r.id === "1118039502552846346"
-    );
-    let salafi = message.guild.roles.cache.find(
-      (r) => r.id === "1053435847120277514"
+      (r) => r.id === "881540349649113099"
     );
 
     const user = message.mentions.users.first();
@@ -49,7 +46,6 @@ module.exports = {
     if (user) {
       member.roles.remove(nonVerified);
       member.roles.add(verified);
-      member.roles.add(salafi);
 
       const error = new MessageEmbed()
         .setColor("GREEN")
@@ -59,20 +55,20 @@ module.exports = {
 
       const welcome = new MessageEmbed()
         .setImage(
-          "https://cdn.discordapp.com/attachments/1098872591072112700/1147220978385027134/Group_133.png"
+          "https://media.discordapp.net/attachments/880565816209342467/1148571098561126480/WELCOME.png"
         )
-        .setColor("#2f3136")
+        .setColor("#E63946")
         .setTitle("<:_:1034928180433272872> Ahlan wa sahlan        ")
         .setDescription(
-          `**As Salaamu Alaykum Wa Rahmatullahi Wa Barakaatuhu, Welcome To Ahlus Sunnah**`
+          "**As Salaamu Alaykum Wa Rahmatullahi Wa Barakaatuhu, Welcome To** `Al-Jama'ah`"
         )
 
         .addField(
-          "`Please Check the following channels and read them`",
-          "<#1053440294487588964> \n  <#923675875831070760>"
+          "`Please Check the following channel and read it`",
+          "<#923675875831070760>"
         );
 
-      client.channels.cache.get("1117147003051315240").send({
+      client.channels.cache.get("880565815487918227").send({
         content: user.toString(),
 
         allowedMentions: { parse: ["users"] },
